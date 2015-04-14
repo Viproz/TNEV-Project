@@ -52,7 +52,7 @@ void loop() {
 
   // read the value of the pot and divide by 4 to get
   // a value that can be used for PWM
-  motorSpeed = analogRead(potPin) / 4;
+  motorSpeed = analogRead(POTENTIOMETER) / 4;
 
   // if the on/off button changed state since the last loop()
   if (onOffSwitchState != previousOnOffSwitchState) {
