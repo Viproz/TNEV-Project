@@ -1,10 +1,3 @@
-/* 
- * File:   Motor.h
- * Author: viproz
- *
- * Created on 15 avril 2015, 15:50
- */
-
 #ifndef MOTOR_H
 #define	MOTOR_H
 #include <Arduino.h>

@@ -1,15 +1,7 @@
 #include <Arduino.h>
 #include "Motor.h"
 
-//PINs
-#define MOTOR1_CONTROL_PIN_1 2
-#define MOTOR1_CONTROL_PIN_2 3
-#define MOTOR1_ENABLE_PIN 9
-
-#define MOTOR2_CONTROL_PIN_1 2
-#define MOTOR2_CONTROL_PIN_2 3
-#define MOTOR2_ENABLE_PIN 9
-
+//PINs Some pins are in MotorCarriage
 #define ON_OFF_BUTTON 5
 #define SWITCH_DIRECTION_BUTTON 4
 #define POTENTIOMETER 5
@@ -24,17 +16,11 @@ int previousOnOffSwitchState = 0;
 int directionSwitchState = 0;
 int previousDirectionSwitchState = 0;
 
-int motorEnabled = 0;
-int motorSpeed = 0;
-int motorDirection = 1;
-
 void setup() {
     //inputs
     pinMode(ON_OFF_BUTTON, INPUT);
     pinMode(SWITCH_DIRECTION_BUTTON, INPUT);
     
-    motor1 = new Motor(MOTOR1_CONTROL_PIN_1, MOTOR1_CONTROL_PIN_2, MOTOR1_ENABLE_PIN);
-    motor2 = new Motor(MOTOR2_CONTROL_PIN_1, MOTOR2_CONTROL_PIN_2, MOTOR2_ENABLE_PIN);
     
 }
 

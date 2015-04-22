@@ -36,6 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/_ext/1628086841/Motor.o \
+	${OBJECTDIR}/_ext/1628086841/MotorCarriage.o \
 	${OBJECTDIR}/main.o
 
 
@@ -67,6 +68,11 @@ ${OBJECTDIR}/_ext/1628086841/Motor.o: /home/viproz/Programation/TNEV-Project/Mot
 	${MKDIR} -p ${OBJECTDIR}/_ext/1628086841
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I${INCLUDE} -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1628086841/Motor.o /home/viproz/Programation/TNEV-Project/Motor.cpp
+
+${OBJECTDIR}/_ext/1628086841/MotorCarriage.o: /home/viproz/Programation/TNEV-Project/MotorCarriage.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1628086841
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I${INCLUDE} -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1628086841/MotorCarriage.o /home/viproz/Programation/TNEV-Project/MotorCarriage.cpp
 
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
