@@ -35,6 +35,7 @@ void setup() {
     
     motor1 = new Motor(MOTOR1_CONTROL_PIN_1, MOTOR1_CONTROL_PIN_2, MOTOR1_ENABLE_PIN);
     motor2 = new Motor(MOTOR2_CONTROL_PIN_1, MOTOR2_CONTROL_PIN_2, MOTOR2_ENABLE_PIN);
+    
 }
 
 void loop() {

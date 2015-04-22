@@ -18,5 +18,6 @@ pinControl1(pinControl1), pinControl2(pinControl2), pinEnable(pinEnable)
 }
 
 Motor::setSpeed(int percent) {
+    int motorSpeed = (float)percent / 100.0 * 255.0;
     
 }
