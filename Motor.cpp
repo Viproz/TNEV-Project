@@ -15,5 +15,14 @@ pinControl1(pinControl1), pinControl2(pinControl2), pinEnable(pinEnable)
 Motor::setSpeed(int percent) {
     //For now simple conversion to 0 -> 255 later we may add calibration
     int motorSpeed = (float)percent / 100.0 * 255.0;
-    digitalWrite(pinEnable, motorSpeed);
+    
+    if(motorSpeed < 0) {
+        digitalWrite(pinControl1, LOW);
+        digitalWrite(pinControl2, HIGH);
+    } else {
+        digitalWrite(pinControl1, HIGH);
+        digitalWrite(pinControl2, LOW);
+    }
+    
+    analogWrite(pinEnable, motorSpeed);
 }
