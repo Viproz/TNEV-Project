@@ -7,8 +7,8 @@ public:
     MotorCarriage();
     virtual ~MotorCarriage();
     
-    Motor getRightMotor() { return rightMotor; }
-    Motor getLeftMotor() { return rightMotor; }
+    Motor* getRightMotor() { return rightMotor; }
+    Motor* getLeftMotor() { return leftMotor; }
     
     void setSpeed(int percent);
     void turn(int degree);
