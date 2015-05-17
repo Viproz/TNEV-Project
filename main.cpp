@@ -1,6 +1,6 @@
 #include <Arduino.h>
-#include "Motor.h"
-#include "MotorCarriage.h"
+#include "src/Motor.h"
+#include "src/MotorCarriage.h"
 
 //PINs Some pins are in MotorCarriage
 #define ON_OFF_BUTTON 5
