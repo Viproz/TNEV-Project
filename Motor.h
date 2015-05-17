@@ -4,14 +4,17 @@
 
 class Motor {
 public:
-    Motor(int pinControl1, int pinControl2, int pinEnable);
+    Motor(uint8_t pinControl1, uint8_t pinControl2, uint8_t pinEnable);
     
     void setSpeed(int percent);
+    void setMaxVoltage(int max) { maxVoltage = max; }
     
 private:
-    int pinControl1;
-    int pinControl2;
-    int pinEnable;
+    uint8_t pinControl1;
+    uint8_t pinControl2;
+    uint8_t pinEnable;
+    
+    int maxVoltage;
     
 };
 

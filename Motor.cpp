@@ -1,6 +1,6 @@
 #include "Motor.h"
 
-Motor::Motor(int pinControl1, int pinControl2, int pinEnable) :
+Motor::Motor(uint8_t pinControl1, uint8_t pinControl2, uint8_t pinEnable) :
 pinControl1(pinControl1), pinControl2(pinControl2), pinEnable(pinEnable) 
 {
     //Inititialize pins
@@ -10,11 +10,14 @@ pinControl1(pinControl1), pinControl2(pinControl2), pinEnable(pinEnable)
     
     //Make sure the motor is stopped
     digitalWrite(pinEnable, LOW);
+    
+    //Before calibration maxVoltage is 255
+    maxVoltage = 255;
 }
 
-Motor::setSpeed(int percent) {
+void Motor::setSpeed(int percent) {
     //For now simple conversion to 0 -> 255 later we may add calibration
-    int motorSpeed = (float)percent / 100.0 * 255.0;
+    int motorSpeed = (float)percent / 100.0 * (float)maxVoltage;
     
     if(motorSpeed < 0) {
         digitalWrite(pinControl1, LOW);

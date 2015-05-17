@@ -6,6 +6,7 @@
                    projectFiles="true">
       <itemPath>/home/viproz/Programation/TNEV-Project/Motor.h</itemPath>
       <itemPath>/home/viproz/Programation/TNEV-Project/MotorCarriage.h</itemPath>
+      <itemPath>/home/viproz/Programation/TNEV-Project/MotorSensor.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -16,6 +17,7 @@
                    projectFiles="true">
       <itemPath>/home/viproz/Programation/TNEV-Project/Motor.cpp</itemPath>
       <itemPath>/home/viproz/Programation/TNEV-Project/MotorCarriage.cpp</itemPath>
+      <itemPath>/home/viproz/Programation/TNEV-Project/MotorSensor.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -76,6 +78,16 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="/home/viproz/Programation/TNEV-Project/MotorSensor.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/viproz/Programation/TNEV-Project/MotorSensor.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
@@ -115,6 +127,16 @@
             flavor2="0">
       </item>
       <item path="/home/viproz/Programation/TNEV-Project/MotorCarriage.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/viproz/Programation/TNEV-Project/MotorSensor.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/viproz/Programation/TNEV-Project/MotorSensor.h"
             ex="false"
             tool="3"
             flavor2="0">
