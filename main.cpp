@@ -6,8 +6,6 @@
 #define ON_OFF_BUTTON 5
 #define SWITCH_DIRECTION_BUTTON 4
 
-extern HardwareSerial Serial;
-
 MotorCarriage motors;
 
 bool move = false;

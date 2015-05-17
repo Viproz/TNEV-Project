@@ -13,6 +13,7 @@
 MotorSensor::MotorSensor(uint8_t pinPhoto) :
     pinPhoto(pinPhoto)
 {
+    intersections = 0;
 }
 
 MotorSensor::~MotorSensor() {

@@ -2,6 +2,7 @@
 #define	MOTORCARRIAGE_H
 #include "Motor.h"
 #include "MotorSensor.h"
+#include "Logger.h"
 
 class MotorCarriage {
 public:
@@ -14,7 +15,8 @@ public:
     void calibrate();
     
     void setSpeed(int percent);
-    void turn(int degree);
+    void turn(int degree, int speedPercent = 100);
+    void goDistance(int centimeter, int speedPercent = 100);
     
 private:
     Motor* rightMotor;
@@ -22,6 +24,8 @@ private:
     
     MotorSensor* rightSensor;
     MotorSensor* leftSensor;
+    
+    float maxSpeed;
 };
 
 #endif	/* MOTORCARRIAGE_H */
