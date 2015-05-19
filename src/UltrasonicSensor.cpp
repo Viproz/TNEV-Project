@@ -15,6 +15,10 @@ UltrasonicSensor::UltrasonicSensor(uint8_t pinSIG) :
 UltrasonicSensor::~UltrasonicSensor() {
 }
 
+/**
+ * 
+ * @return Distance of the nearest object
+ */
 int UltrasonicSensor::getDistance() {
     // establish variables for duration of the ping, 
     // and the distance result in inches and centimeters:

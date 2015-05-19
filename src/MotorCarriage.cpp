@@ -27,8 +27,13 @@ MotorCarriage::~MotorCarriage() {
     delete leftSensor;
 }
 
+/**
+ * This will be used to calibrate the motors
+ */
 void MotorCarriage::calibrate() {
     //First step : Go forward
+    leftMotor->setMaxVoltage(255);
+    rightMotor->setMaxVoltage(255);
     setSpeed(100);
     int time = millis();
     while(true) {
@@ -59,11 +64,24 @@ void MotorCarriage::calibrate() {
     //TODO: Change 1.047 (pi/3) * 2 (radius of the wheel) to a precalculated value
 }
 
+/**
+ * Change the speed of the carriage
+ * 
+ * @param percent Speed in percent
+ */
 void MotorCarriage::setSpeed(int percent) {
     leftMotor->setSpeed(percent);
     rightMotor->setSpeed(percent);
 }
 
+/**
+ * Make the carriage turn
+ * 
+ * Be carefull this function is blocking
+ * 
+ * @param degree Angle in degree to turn, in trigonometric direction
+ * @param speedPercent
+ */
 void MotorCarriage::turn(int degree, int speedPercent) {
     //Both wheels will move
     //d = angle / 2 * pi * (dist between the two wheels) / 180 and t = d / v
@@ -84,6 +102,14 @@ void MotorCarriage::turn(int degree, int speedPercent) {
     leftMotor->setSpeed(0);
 }
 
+/**
+ * Moves the carriage to some distance
+ * 
+ * Be carefull this function is blocking
+ * 
+ * @param centimeters Distance to move
+ * @param speedPercent Speed in percent
+ */
 void MotorCarriage::goDistance(int centimeters, int speedPercent) {
     //t = d / v
     float timeToMove = abs(centimeters) / maxSpeed / ((float)speedPercent / 100.0);

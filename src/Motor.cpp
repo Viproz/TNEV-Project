@@ -15,6 +15,11 @@ pinControl1(pinControl1), pinControl2(pinControl2), pinEnable(pinEnable)
     maxVoltage = 255;
 }
 
+/**
+ * Changes the speed of the motor
+ * 
+ * @param percent Speed in percentage
+ */
 void Motor::setSpeed(int percent) {
     //For now simple conversion to 0 -> 255 later we may add calibration
     int motorSpeed = (float)percent / 100.0 * (float)maxVoltage;
