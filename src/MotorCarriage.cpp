@@ -96,7 +96,7 @@ void MotorCarriage::turn(int degree, int speedPercent) {
     
     //TODO: Find a way to be able to remove the delay
     rightMotor->setSpeed(speedPercent * sign);
-    leftMotor->setSpeed(-1.0 * speedPercent * sign)
+    leftMotor->setSpeed(-1.0 * speedPercent * sign);
     delayMicroseconds(timeToMove * 1000.0);
     rightMotor->setSpeed(0);
     leftMotor->setSpeed(0);

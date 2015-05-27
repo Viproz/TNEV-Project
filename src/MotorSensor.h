@@ -8,12 +8,14 @@
 #ifndef MOTORSENSOR_H
 #define	MOTORSENSOR_H
 
+#include "Logger.h"
+
 class MotorSensor {
 public:
     MotorSensor(uint8_t pinPhoto);
     virtual ~MotorSensor();
     
-    int tick();
+    int tick(HardwareSerial* Serial = 0);
     int getIntersections() { return intersections; }
 private:
     uint8_t pinPhoto;

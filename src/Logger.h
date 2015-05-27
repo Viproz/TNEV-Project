@@ -12,6 +12,7 @@
 class Logger {
 public:
     static void init();
+    static void log(const char* msg) { serial.println(msg); }
     static void log(char msg) { serial.println(msg); }
     static void log(char* msg) { serial.println(msg); }
     static void log(int msg) { serial.println(msg); }
@@ -22,7 +23,7 @@ public:
     static void error() { digitalWrite(13, HIGH); }
     
 private:
-    static extern HardwareSerial serial;
+    static HardwareSerial serial;
 
 };
 

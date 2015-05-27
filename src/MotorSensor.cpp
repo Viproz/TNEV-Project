@@ -19,10 +19,17 @@ MotorSensor::MotorSensor(uint8_t pinPhoto) :
 MotorSensor::~MotorSensor() {
 }
 
-int MotorSensor::tick() {
+int MotorSensor::tick(HardwareSerial* Serial) {
     int value = analogRead(pinPhoto);
-    if(abs(value - prevValue) > 600)
+    Serial->println("Thing");
+    Serial->println(prevValue);
+    Serial->println(value);
+    if(abs(value - prevValue) > 200) {
         intersections++;
+        prevValue = value;
+        //Logger::log("Tick");
+        //Logger::log(intersections);
+    }
     
     return intersections;
 }

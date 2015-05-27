@@ -1,12 +1,14 @@
 #include <Arduino.h>
-#include "src/Motor.h"
-#include "src/MotorCarriage.h"
+//#include "src/Motor.h"
+//#include "src/MotorCarriage.h"
+#include "src/MotorSensor.h"
+#include <HardwareSerial.h>
 
 //PINs Some pins are in MotorCarriage
 #define ON_OFF_BUTTON 5
 #define SWITCH_DIRECTION_BUTTON 4
 
-MotorCarriage motors;
+//MotorCarriage motors;
 
 bool move = false;
 bool direction = true;
@@ -15,16 +17,23 @@ int previousOnOffSwitchState = 0;
 int directionSwitchState = 0;
 int previousDirectionSwitchState = 0;
 
+MotorSensor* sensor;
+
+extern HardwareSerial Serial;
+
 void setup() {
     //inputs
     pinMode(ON_OFF_BUTTON, INPUT);
     pinMode(SWITCH_DIRECTION_BUTTON, INPUT);
-    
-    
+    sensor = new MotorSensor(A0);
+    Serial.begin(9600);
 }
 
 void loop() {
-    // read the value of the on/off switch
+    delayMicroseconds(200);
+    Serial.println(sensor->tick(&Serial));
+    
+    /*// read the value of the on/off switch
     onOffSwitchState = digitalRead(ON_OFF_BUTTON);
     
     // read the value of the direction switch
@@ -63,5 +72,5 @@ void loop() {
     // save the current On/Offswitch state as the previous
     previousDirectionSwitchState = directionSwitchState;
     // save the current switch state as the previous
-    previousOnOffSwitchState = onOffSwitchState;
+    previousOnOffSwitchState = onOffSwitchState;*/
 }
