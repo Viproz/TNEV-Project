@@ -1485,6 +1485,10 @@ Mount :-Surface mount</description>
 <part name="SUPPLY11" library="supply2" deviceset="+5V" device=""/>
 <part name="SUPPLY12" library="supply2" deviceset="+5V" device=""/>
 <part name="GND12" library="supply1" deviceset="GND" device=""/>
+<part name="R2" library="BaseApp" deviceset="RESISTOR" device="" value="10k"/>
+<part name="R1" library="BaseApp" deviceset="RESISTOR" device="" value="10k"/>
+<part name="GND14" library="supply1" deviceset="GND" device=""/>
+<part name="GND15" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -1496,7 +1500,7 @@ Mount :-Surface mount</description>
 <instance part="GND2" gate="1" x="116.84" y="55.88" rot="R270"/>
 <instance part="SUPPLY1" gate="+5V" x="27.94" y="53.34" rot="R90"/>
 <instance part="SUPPLY2" gate="+5V" x="157.48" y="76.2" rot="R270"/>
-<instance part="SUPPLY3" gate="+5V" x="127" y="35.56" rot="R270"/>
+<instance part="SUPPLY3" gate="+5V" x="116.84" y="40.64" rot="R90"/>
 <instance part="GND3" gate="1" x="33.02" y="48.26" rot="R270"/>
 <instance part="GND4" gate="1" x="35.56" y="50.8" rot="R270"/>
 <instance part="GND5" gate="1" x="116.84" y="60.96" rot="R270"/>
@@ -1515,11 +1519,11 @@ Mount :-Surface mount</description>
 <instance part="GND1" gate="1" x="119.38" y="22.86" rot="R180"/>
 <instance part="GND10" gate="1" x="88.9" y="17.78" rot="R180"/>
 <instance part="BUZZ" gate="G$1" x="114.3" y="17.78"/>
-<instance part="PHOTO" gate="A" x="27.94" y="33.02"/>
-<instance part="SUPPLY7" gate="+5V" x="17.78" y="35.56" rot="R90"/>
-<instance part="SUPPLY8" gate="+5V" x="17.78" y="33.02" rot="R90"/>
-<instance part="SUPPLY9" gate="+5V" x="17.78" y="30.48" rot="R90"/>
-<instance part="GND11" gate="1" x="35.56" y="43.18" rot="R90"/>
+<instance part="PHOTO" gate="A" x="15.24" y="38.1"/>
+<instance part="SUPPLY7" gate="+5V" x="7.62" y="40.64" rot="R90"/>
+<instance part="SUPPLY8" gate="+5V" x="5.08" y="38.1" rot="R90"/>
+<instance part="SUPPLY9" gate="+5V" x="7.62" y="35.56" rot="R90"/>
+<instance part="GND11" gate="1" x="22.86" y="45.72" rot="R180"/>
 <instance part="S1" gate="1" x="58.42" y="38.1" rot="R270"/>
 <instance part="SW3" gate="1" x="142.24" y="22.86" rot="R270"/>
 <instance part="S3" gate="1" x="58.42" y="63.5" rot="R270"/>
@@ -1531,6 +1535,10 @@ Mount :-Surface mount</description>
 <instance part="SUPPLY11" gate="+5V" x="127" y="0" rot="R270"/>
 <instance part="SUPPLY12" gate="+5V" x="81.28" y="-10.16" rot="R180"/>
 <instance part="GND12" gate="1" x="106.68" y="17.78" rot="R270"/>
+<instance part="R2" gate="G$1" x="106.68" y="0"/>
+<instance part="R1" gate="G$1" x="78.74" y="10.16" rot="R270"/>
+<instance part="GND14" gate="1" x="78.74" y="17.78" rot="R180"/>
+<instance part="GND15" gate="1" x="99.06" y="0" rot="R270"/>
 </instances>
 <busses>
 </busses>
@@ -1596,12 +1604,20 @@ Mount :-Surface mount</description>
 <wire x1="111.76" y1="17.78" x2="109.22" y2="17.78" width="0.1524" layer="91"/>
 <pinref part="GND12" gate="1" pin="GND"/>
 </segment>
+<segment>
+<pinref part="R2" gate="G$1" pin="1"/>
+<pinref part="GND15" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="R1" gate="G$1" pin="1"/>
+<pinref part="GND14" gate="1" pin="GND"/>
+</segment>
 </net>
 <net name="+5V" class="0">
 <segment>
 <pinref part="IC1" gate="G$1" pin="VCC2"/>
 <pinref part="SUPPLY3" gate="+5V" pin="+5V"/>
-<wire x1="124.46" y1="35.56" x2="121.92" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="119.38" y1="40.64" x2="121.92" y2="40.64" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="PCB1" gate="G$1" pin="5V"/>
@@ -1631,17 +1647,17 @@ Mount :-Surface mount</description>
 <segment>
 <pinref part="PHOTO" gate="A" pin="1"/>
 <pinref part="SUPPLY7" gate="+5V" pin="+5V"/>
-<wire x1="20.32" y1="35.56" x2="25.4" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="10.16" y1="40.64" x2="12.7" y2="40.64" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="PHOTO" gate="A" pin="3"/>
 <pinref part="SUPPLY8" gate="+5V" pin="+5V"/>
-<wire x1="20.32" y1="33.02" x2="25.4" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="7.62" y1="38.1" x2="12.7" y2="38.1" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="PHOTO" gate="A" pin="5"/>
 <pinref part="SUPPLY9" gate="+5V" pin="+5V"/>
-<wire x1="20.32" y1="30.48" x2="25.4" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="10.16" y1="35.56" x2="12.7" y2="35.56" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="SW3" gate="1" pin="S"/>
@@ -1662,8 +1678,8 @@ Mount :-Surface mount</description>
 <net name="N$5" class="0">
 <segment>
 <pinref part="PCB1" gate="G$1" pin="12"/>
-<wire x1="83.82" y1="60.96" x2="101.6" y2="60.96" width="0.1524" layer="91"/>
-<wire x1="101.6" y1="60.96" x2="101.6" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="60.96" x2="91.44" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="91.44" y1="60.96" x2="101.6" y2="71.12" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="G$1" pin="1A"/>
 <wire x1="101.6" y1="71.12" x2="121.92" y2="71.12" width="0.1524" layer="91"/>
 </segment>
@@ -1739,33 +1755,30 @@ Mount :-Surface mount</description>
 <net name="N$9" class="0">
 <segment>
 <pinref part="PCB1" gate="G$1" pin="8"/>
-<wire x1="83.82" y1="50.8" x2="152.4" y2="48.26" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="G$1" pin="3A"/>
 <wire x1="152.4" y1="48.26" x2="152.4" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="50.8" x2="83.82" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="48.26" x2="152.4" y2="48.26" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$11" class="0">
 <segment>
 <pinref part="PHOTO" gate="A" pin="6"/>
-<wire x1="33.02" y1="30.48" x2="38.1" y2="30.48" width="0.1524" layer="91"/>
-<wire x1="38.1" y1="30.48" x2="38.1" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="20.32" y1="35.56" x2="40.64" y2="35.56" width="0.1524" layer="91"/>
 <pinref part="PCB1" gate="G$1" pin="A1"/>
-<wire x1="38.1" y1="35.56" x2="40.64" y2="35.56" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$12" class="0">
 <segment>
 <pinref part="PHOTO" gate="A" pin="4"/>
-<wire x1="33.02" y1="33.02" x2="35.56" y2="33.02" width="0.1524" layer="91"/>
-<wire x1="35.56" y1="33.02" x2="35.56" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="20.32" y1="38.1" x2="40.64" y2="38.1" width="0.1524" layer="91"/>
 <pinref part="PCB1" gate="G$1" pin="A0"/>
-<wire x1="35.56" y1="38.1" x2="40.64" y2="38.1" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$13" class="0">
 <segment>
 <pinref part="PHOTO" gate="A" pin="2"/>
-<wire x1="33.02" y1="35.56" x2="33.02" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="20.32" y1="40.64" x2="22.86" y2="43.18" width="0.1524" layer="91"/>
 <pinref part="GND11" gate="1" pin="GND"/>
 </segment>
 </net>
@@ -1773,8 +1786,11 @@ Mount :-Surface mount</description>
 <segment>
 <pinref part="SRVO" gate="A" pin="2"/>
 <pinref part="PCB1" gate="G$1" pin="~6"/>
-<wire x1="83.82" y1="40.64" x2="111.76" y2="38.1" width="0.1524" layer="91"/>
-<wire x1="111.76" y1="38.1" x2="121.92" y2="17.78" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="40.64" x2="96.52" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="40.64" x2="104.14" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="104.14" y1="33.02" x2="104.14" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="104.14" y1="25.4" x2="121.92" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="121.92" y1="25.4" x2="121.92" y2="17.78" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$15" class="0">
@@ -1798,9 +1814,12 @@ Mount :-Surface mount</description>
 <net name="N$17" class="0">
 <segment>
 <pinref part="PCB1" gate="G$1" pin="7"/>
+<wire x1="83.82" y1="43.18" x2="96.52" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="43.18" x2="106.68" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="106.68" y1="33.02" x2="106.68" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="106.68" y1="27.94" x2="137.16" y2="27.94" width="0.1524" layer="91"/>
 <pinref part="SW3" gate="1" pin="P"/>
-<wire x1="83.82" y1="43.18" x2="114.3" y2="40.64" width="0.1524" layer="91"/>
-<wire x1="114.3" y1="40.64" x2="137.16" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="27.94" x2="137.16" y2="22.86" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$18" class="0">
@@ -1818,6 +1837,18 @@ Mount :-Surface mount</description>
 <wire x1="99.06" y1="33.02" x2="96.52" y2="35.56" width="0.1524" layer="91"/>
 <pinref part="PCB1" gate="G$1" pin="4"/>
 <wire x1="96.52" y1="35.56" x2="83.82" y2="35.56" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$20" class="0">
+<segment>
+<pinref part="SW2" gate="1" pin="P1"/>
+<pinref part="R2" gate="G$1" pin="2"/>
+</segment>
+</net>
+<net name="N$21" class="0">
+<segment>
+<pinref part="SW1" gate="1" pin="P1"/>
+<pinref part="R1" gate="G$1" pin="2"/>
 </segment>
 </net>
 </nets>
