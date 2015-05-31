@@ -9,21 +9,23 @@
 #define	LOGGER_H
 #include <Arduino.h>
 
+extern HardwareSerial Serial;
+
 class Logger {
 public:
     static void init();
-    static void log(const char* msg) { serial.println(msg); }
-    static void log(char msg) { serial.println(msg); }
-    static void log(char* msg) { serial.println(msg); }
-    static void log(int msg) { serial.println(msg); }
-    static void log(long msg) { serial.println(msg); }
-    static void log(String msg) { serial.println(msg); }
-    static void log(double msg) { serial.println(msg); }
+    static void log(const char* msg) { Serial.println(msg); }
+    static void log(char msg) { Serial.println(msg); }
+    static void log(char* msg) { Serial.println(msg); }
+    static void log(int msg) { Serial.println(msg); }
+    static void log(long msg) { Serial.println(msg); }
+    static void log(String msg) { Serial.println(msg); }
+    static void log(double msg) { Serial.println(msg); }
     
     static void error() { digitalWrite(13, HIGH); }
     
 private:
-    static HardwareSerial serial;
+    
 
 };
 

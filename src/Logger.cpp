@@ -8,6 +8,6 @@
 #include "Logger.h"
 
 void Logger::init() {
-    serial.begin(9600);
+    Serial.begin(9600);
 }
 

@@ -19,7 +19,7 @@ MotorSensor::MotorSensor(uint8_t pinPhoto) :
 MotorSensor::~MotorSensor() {
 }
 
-int MotorSensor::tick(HardwareSerial* Serial) {
+int MotorSensor::tick() {
     int value = analogRead(pinPhoto);
     Serial->println("Thing");
     Serial->println(prevValue);

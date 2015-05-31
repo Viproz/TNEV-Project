@@ -19,19 +19,17 @@ int previousDirectionSwitchState = 0;
 
 MotorSensor* sensor;
 
-extern HardwareSerial Serial;
-
 void setup() {
     //inputs
     pinMode(ON_OFF_BUTTON, INPUT);
     pinMode(SWITCH_DIRECTION_BUTTON, INPUT);
+    Logger::init();
     sensor = new MotorSensor(A0);
-    Serial.begin(9600);
 }
 
 void loop() {
     delayMicroseconds(200);
-    Serial.println(sensor->tick(&Serial));
+    Logger::log("this");
     
     /*// read the value of the on/off switch
     onOffSwitchState = digitalRead(ON_OFF_BUTTON);
