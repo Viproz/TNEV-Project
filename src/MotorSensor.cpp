@@ -10,25 +10,34 @@
 
 #include "MotorSensor.h"
 
-MotorSensor::MotorSensor(uint8_t pinPhoto) :
-    pinPhoto(pinPhoto)
+MotorSensor::MotorSensor(uint8_t pinContact) :
+    pinContact(pinContact)
 {
     intersections = 0;
+    toGround = false;
 }
 
 MotorSensor::~MotorSensor() {
 }
 
+/**
+ * Reset the counter
+ */
+void MotorSensor::reset() { 
+    intersections = 0; 
+}
+
+/**
+ * Will read the sensor to count intersections
+ * 
+ * @return Numbers of intersections passed since the begining
+ */
 int MotorSensor::tick() {
-    int value = analogRead(pinPhoto);
-    Serial->println("Thing");
-    Serial->println(prevValue);
-    Serial->println(value);
-    if(abs(value - prevValue) > 200) {
+    int value = analogRead(pinContact);
+    
+    if((value > 800 && toGround) || (value < 200 && !toGround)) {
+        toGround = !toGround
         intersections++;
-        prevValue = value;
-        //Logger::log("Tick");
-        //Logger::log(intersections);
     }
     
     return intersections;

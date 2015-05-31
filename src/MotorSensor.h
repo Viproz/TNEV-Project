@@ -15,12 +15,15 @@ public:
     MotorSensor(uint8_t pinPhoto);
     virtual ~MotorSensor();
     
+    void reset();
+    
     int tick();
     int getIntersections() { return intersections; }
 private:
-    uint8_t pinPhoto;
+    uint8_t pinContact;
     
-    int prevValue;
+    bool toGround;
+    
     int intersections;
 };
 
