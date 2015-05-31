@@ -3,72 +3,43 @@
 //#include "src/MotorCarriage.h"
 #include "src/MotorSensor.h"
 #include <HardwareSerial.h>
+#include "src/Button.h"
+#include "src/MotorCarriage.h"
 
 //PINs Some pins are in MotorCarriage
-#define ON_OFF_BUTTON 5
-#define SWITCH_DIRECTION_BUTTON 4
+#define PIN_START 2
+#define PIN_STOP 5
+#define PIN_CALIBRATE 4
 
-//MotorCarriage motors;
+Button *buttonStart;
+Button *buttonStop;
+Button *buttonCalibrate;
 
-bool move = false;
-bool direction = true;
-bool onOffSwitchState = 0;
-int previousOnOffSwitchState = 0;
-int directionSwitchState = 0;
-int previousDirectionSwitchState = 0;
+MotorCarriage motors;
 
 MotorSensor* sensor;
 
 void setup() {
-    //inputs
-    pinMode(ON_OFF_BUTTON, INPUT);
-    pinMode(SWITCH_DIRECTION_BUTTON, INPUT);
+    //Initialize variables and classes
     Logger::init();
     sensor = new MotorSensor(A0);
+    buttonCalibrate = new Button(PIN_CALIBRATE);
+    buttonStart = new Button(PIN_START);
+    buttonStop = new Button(PIN_STOP);
 }
 
 void loop() {
     delayMicroseconds(200);
     Logger::log("this");
     
-    /*// read the value of the on/off switch
-    onOffSwitchState = digitalRead(ON_OFF_BUTTON);
-    
-    // read the value of the direction switch
-    directionSwitchState = digitalRead(SWITCH_DIRECTION_BUTTON);
-    
-    
-    // if the direction button changed state since the last loop()
-    if (directionSwitchState != previousDirectionSwitchState) {
-        // change the value of motorDirection if pressed
-        if (directionSwitchState == HIGH) {
-            direction = !direction;
-        }
+    //Buttons
+    if(buttonStop->pushed()) {
+        
     }
-    
-    
-    // if the on/off button changed state since the last loop()
-    if (onOffSwitchState != previousOnOffSwitchState) {
-        // change the value of motorEnabled if pressed
-        if (onOffSwitchState == HIGH) {
-            move = !move;
-            int speed = 50; //Speed to 50%
-            if (!direction) {
-                speed = -speed;
-            }
-            
-            // if the motor is supposed to be on
-            if (move) {
-                motors.setSpeed(speed);
-            } else { 
-                motors.setSpeed(0);
-            }
-        }
+    if(buttonStart->pushed()) {
+        
     }
-    
-    
-    // save the current On/Offswitch state as the previous
-    previousDirectionSwitchState = directionSwitchState;
-    // save the current switch state as the previous
-    previousOnOffSwitchState = onOffSwitchState;*/
+    if(buttonCalibrate->pushed()) {
+        motors.calibrate();
+    }
 }

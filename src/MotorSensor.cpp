@@ -36,7 +36,7 @@ int MotorSensor::tick() {
     int value = analogRead(pinContact);
     
     if((value > 800 && toGround) || (value < 200 && !toGround)) {
-        toGround = !toGround
+        toGround = !toGround;
         intersections++;
     }
     

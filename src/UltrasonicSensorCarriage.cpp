@@ -8,15 +8,15 @@
 #include "UltrasonicSensorCarriage.h"
 #include "UltrasonicSensor.h"
 
-#define PIN_SENSOR A0
-#define PIN_SERVO 8
+#define PIN_SENSOR 3
+#define PIN_SERVO 7
 
 UltrasonicSensorCarriage::UltrasonicSensorCarriage()
 {
-    /*sensor = new UltrasonicSensor(PIN_SENSOR);
-    servo.attach(PIN_SERVO);*/
+    sensor = new UltrasonicSensor(PIN_SENSOR);
+    servo.attach(PIN_SERVO);
 }
 
 UltrasonicSensorCarriage::~UltrasonicSensorCarriage() {
-    //delete sensor;
+    delete sensor;
 }
