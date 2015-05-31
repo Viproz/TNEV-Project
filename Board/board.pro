@@ -1,25 +1,25 @@
 EAGLE AutoRouter Statistics:
 
-Job           : C:/Users/Ylmir/Documents/GitHub/TNEV-Project/Board/board.brd
+Job           : /home/viproz/Programation/Nouveau/board_autorouted_1_layer_d.brd
 
-Start at      : 21:31:21 (27/05/2015)
-End at        : 21:31:22 (27/05/2015)
+Start at      : 01:58:29 (31/05/15)
+End at        : 01:58:30 (31/05/15)
 Elapsed time  : 00:00:01
 
-Signals       :    26   RoutingGrid: 20 mil  Layers: 2
-Connections   :    53   predefined:  15 ( 0 Vias )
+Signals       :    28   RoutingGrid: 12.5 mil  Layers: 1
+Connections   :    55   predefined:  51 ( 0 Vias )
 
-Router memory :   128736
+Router memory :   125874
 
 Passname          :    Busses     Route Optimize1 Optimize2 Optimize3 Optimize4
 
-Time per pass     :  00:00:00  00:00:00  00:00:00  00:00:00  00:00:00  00:00:01
+Time per pass     :  00:00:00  00:00:01  00:00:00  00:00:00  00:00:00  00:00:00
 Number of Ripups  :         0         0         0         0         0         0
 max. Level        :         0         0         0         0         0         0
 max. Total        :         0         0         0         0         0         0
 
-Routed            :        13        38        38        38        38        38
-Vias              :         0        20         5         5         4         4
-Resolution        :    52.8 %   100.0 %   100.0 %   100.0 %   100.0 %   100.0 %
+Routed            :         0         4         4         4         4         4
+Vias              :         0         0         0         0         0         0
+Resolution        :    92.7 %   100.0 %   100.0 %   100.0 %   100.0 %   100.0 %
 
 Final             : 100.0% finished
