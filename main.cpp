@@ -28,18 +28,17 @@ void setup() {
     buttonStop = new Button(PIN_STOP);
 }
 
-void loop() {
-    delayMicroseconds(200);
-    Logger::log("this");
-    
+void loop() {    
     //Buttons
     if(buttonStop->pushed()) {
-        
+        Logger::log("pres.3se2d");
     }
     if(buttonStart->pushed()) {
-        
+        motors.goDistance(20);
+        Logger::log("pressed");
     }
     if(buttonCalibrate->pushed()) {
         motors.calibrate();
+        Logger::log("presse2d");
     }
 }

@@ -9,11 +9,13 @@
 #define	ULTRASONICSENSORCARRIAGE_H
 #include "UltrasonicSensor.h"
 #include <Servo.h>
+#include <Arduino.h>
 
 class UltrasonicSensorCarriage {
 public:
     UltrasonicSensorCarriage();
     virtual ~UltrasonicSensorCarriage();
+    void findNearest(int& angle, int& distance);
 private:
     Servo servo;
     UltrasonicSensor* sensor;

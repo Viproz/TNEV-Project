@@ -14,7 +14,7 @@ MotorSensor::MotorSensor(uint8_t pinContact) :
     pinContact(pinContact)
 {
     intersections = 0;
-    toGround = false;
+    prevDetection = 0;
 }
 
 MotorSensor::~MotorSensor() {
@@ -35,9 +35,10 @@ void MotorSensor::reset() {
 int MotorSensor::tick() {
     int value = analogRead(pinContact);
     
-    if((value > 800 && toGround) || (value < 200 && !toGround)) {
-        toGround = !toGround;
+    if(value > 800 && millis() - prevDetection > 100) {
+        prevDetection = millis();
         intersections++;
+        Logger::log(intersections);
     }
     
     return intersections;

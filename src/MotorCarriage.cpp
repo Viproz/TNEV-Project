@@ -17,6 +17,8 @@ MotorCarriage::MotorCarriage() {
     
     rightSensor = new MotorSensor(MOTOR1_SENSOR_PIN);
     leftSensor = new MotorSensor(MOTOR2_SENSOR_PIN);
+    
+    maxSpeed = 50;
 }
 
 MotorCarriage::~MotorCarriage() {
@@ -34,19 +36,23 @@ void MotorCarriage::calibrate() {
     //First step : Go forward
     leftMotor->setMaxVoltage(255);
     rightMotor->setMaxVoltage(255);
+    rightSensor->reset();
+    leftSensor->reset();
     setSpeed(100);
-    int time = millis();
+    unsigned long time = millis();
+    Logger::log("there");
     while(true) {
         //With a timout of 10 sec
-        if(millis() - time > 10000) {
+        if(millis() - time > 15000) {
             Logger::log("Calibration timeout");
             Logger::error();
             break;
         }
-        if((rightSensor->tick() > 20 && leftSensor->tick() > 20)) {
+        if((rightSensor->tick() >= 20 && leftSensor->tick() >= 20)) {
             break;
         }
     }
+    setSpeed(0);
     //Get the minimal number of ticks
     int minIntersections = 0;
     
@@ -60,8 +66,7 @@ void MotorCarriage::calibrate() {
     }
     
     //Get the speed in cm/s of the robot d = intersections * (2pi / number of intersections of the wheel) * radius of the wheel
-    maxSpeed = (float)minIntersections * 1.047 * 2 / ((float)(millis() - time) / 1000.0);
-    //TODO: Change 1.047 (pi/3) * 2 (radius of the wheel) to a precalculated value
+    maxSpeed = (float)minIntersections * 19.415 / ((float)(millis() - time) / 1000.0);
 }
 
 /**
@@ -86,7 +91,7 @@ void MotorCarriage::turn(int degree, int speedPercent) {
     //Both wheels will move
     //d = angle / 2 * pi * (dist between the two wheels) / 180 and t = d / v
     //TODO: precalculate 1/2 * pi * (dist between the two wheels) / 180
-    float timeToMove = (abs(degree) * 0.123 / maxSpeed) / ((float)speedPercent / 100.0);
+    float timeToMove = (abs(degree) * 0.1244 / maxSpeed) / ((float)speedPercent / 100.0);
     
     float sign = 1;
     
@@ -116,6 +121,6 @@ void MotorCarriage::goDistance(int centimeters, int speedPercent) {
     
     //TODO: Find a way to be able to remove the delay
     setSpeed(speedPercent);
-    delayMicroseconds(timeToMove * 1000.0);
+    delay(timeToMove * 1000.0);
     setSpeed(0);
 }

@@ -20,3 +20,32 @@ UltrasonicSensorCarriage::UltrasonicSensorCarriage()
 UltrasonicSensorCarriage::~UltrasonicSensorCarriage() {
     delete sensor;
 }
+
+void UltrasonicSensorCarriage::findNearest(int& angle, int& distance) {
+    //We will sweep 144° 18° by 18°
+    
+    int servoAngle = 18;
+    int nearestObject = 1000;
+    int firstAngle = 0;
+    int lastAngle = 0;
+    while(servoAngle < 180) {
+        servo.write(servoAngle);
+        delay(100);
+        
+        int objectDist = sensor->getDistance();
+        if(nearestObject - objectDist > 15) {
+            firstAngle = servoAngle;
+            lastAngle = 0;
+            nearestObject = objectDist;
+        } else if(objectDist - nearestObject > 15 && lastAngle == 0) {
+            lastAngle = servoAngle;
+        }
+        
+        servoAngle += 18;
+    }
+    if(lastAngle == 0)
+        lastAngle = servoAngle;
+    
+    angle = (firstAngle + lastAngle) / 2;
+    distance = nearestObject;
+}

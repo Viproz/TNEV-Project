@@ -17,7 +17,7 @@ UltrasonicSensor::~UltrasonicSensor() {
 
 /**
  * 
- * @return Distance of the nearest object
+ * @return Distance of the nearest object in cm
  */
 int UltrasonicSensor::getDistance() {
     // establish variables for duration of the ping, 

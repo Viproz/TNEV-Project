@@ -22,7 +22,7 @@ public:
 private:
     uint8_t pinContact;
     
-    bool toGround;
+    unsigned long prevDetection;
     
     int intersections;
 };
