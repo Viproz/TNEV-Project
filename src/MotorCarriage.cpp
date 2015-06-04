@@ -19,6 +19,8 @@ MotorCarriage::MotorCarriage() {
     leftSensor = new MotorSensor(MOTOR2_SENSOR_PIN);
     
     maxSpeed = 50;
+    
+    setSpeed(0);
 }
 
 MotorCarriage::~MotorCarriage() {

@@ -16,6 +16,8 @@ public:
     UltrasonicSensorCarriage();
     virtual ~UltrasonicSensorCarriage();
     void findNearest(int& angle, int& distance);
+    void reset();
+    void write(int angle) { servo.write(angle); }
 private:
     Servo servo;
     UltrasonicSensor* sensor;

@@ -7,6 +7,7 @@
 
 #include "UltrasonicSensorCarriage.h"
 #include "UltrasonicSensor.h"
+#include "Logger.h"
 
 #define PIN_SENSOR 3
 #define PIN_SERVO 7
@@ -33,6 +34,7 @@ void UltrasonicSensorCarriage::findNearest(int& angle, int& distance) {
         delay(100);
         
         int objectDist = sensor->getDistance();
+        Logger::log(objectDist);
         if(nearestObject - objectDist > 15) {
             firstAngle = servoAngle;
             lastAngle = 0;
@@ -48,4 +50,8 @@ void UltrasonicSensorCarriage::findNearest(int& angle, int& distance) {
     
     angle = (firstAngle + lastAngle) / 2;
     distance = nearestObject;
+}
+
+void UltrasonicSensorCarriage::reset() {
+    servo.write(90);
 }

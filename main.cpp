@@ -5,6 +5,7 @@
 #include <HardwareSerial.h>
 #include "src/Button.h"
 #include "src/MotorCarriage.h"
+#include "src/UltrasonicSensorCarriage.h"
 
 //PINs Some pins are in MotorCarriage
 #define PIN_START 2
@@ -18,6 +19,7 @@ Button *buttonCalibrate;
 MotorCarriage motors;
 
 MotorSensor* sensor;
+UltrasonicSensorCarriage* sound;
 
 void setup() {
     //Initialize variables and classes
@@ -26,16 +28,25 @@ void setup() {
     buttonCalibrate = new Button(PIN_CALIBRATE);
     buttonStart = new Button(PIN_START);
     buttonStop = new Button(PIN_STOP);
+    sound = new UltrasonicSensorCarriage();
 }
 
 void loop() {    
     //Buttons
     if(buttonStop->pushed()) {
         Logger::log("pres.3se2d");
+        int angle, dist = 1;
+        sound->findNearest(angle, dist);
+        Logger::log("Result : Angle & dist");
+        Logger::log(angle);
+        Logger::log(dist);
+        sound->write(angle);
     }
     if(buttonStart->pushed()) {
-        motors.goDistance(20);
+        //motors.goDistance(20);
+        sound->reset();
         Logger::log("pressed");
+        
     }
     if(buttonCalibrate->pushed()) {
         motors.calibrate();
