@@ -7,13 +7,13 @@ CND_BASEDIR=`pwd`
 CND_BUILDDIR=build
 CND_DISTDIR=dist
 # Debug configuration
-CND_PLATFORM_Debug=Arduino-Linux-x86
-CND_ARTIFACT_DIR_Debug=dist/Debug/Arduino-Linux-x86
+CND_PLATFORM_Debug=Arduino-Windows
+CND_ARTIFACT_DIR_Debug=dist/Debug/Arduino-Windows
 CND_ARTIFACT_NAME_Debug=tnev-project
-CND_ARTIFACT_PATH_Debug=dist/Debug/Arduino-Linux-x86/tnev-project
-CND_PACKAGE_DIR_Debug=dist/Debug/Arduino-Linux-x86/package
+CND_ARTIFACT_PATH_Debug=dist/Debug/Arduino-Windows/tnev-project
+CND_PACKAGE_DIR_Debug=dist/Debug/Arduino-Windows/package
 CND_PACKAGE_NAME_Debug=tnev-project.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/Arduino-Linux-x86/package/tnev-project.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/Arduino-Windows/package/tnev-project.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-Linux-x86
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-Linux-x86

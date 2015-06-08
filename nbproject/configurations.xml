@@ -4,14 +4,14 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>/home/viproz/Programation/TNEV-Project/src/Button.h</itemPath>
-      <itemPath>/home/viproz/Programation/TNEV-Project/src/Logger.h</itemPath>
-      <itemPath>/home/viproz/Programation/TNEV-Project/src/Motor.h</itemPath>
-      <itemPath>/home/viproz/Programation/TNEV-Project/src/MotorCarriage.h</itemPath>
-      <itemPath>/home/viproz/Programation/TNEV-Project/src/MotorSensor.h</itemPath>
-      <itemPath>/home/viproz/Programation/TNEV-Project/src/Servo.h</itemPath>
-      <itemPath>/home/viproz/Programation/TNEV-Project/src/UltrasonicSensor.h</itemPath>
-      <itemPath>/home/viproz/Programation/TNEV-Project/src/UltrasonicSensorCarriage.h</itemPath>
+      <itemPath>src/Button.h</itemPath>
+      <itemPath>src/Logger.h</itemPath>
+      <itemPath>src/Motor.h</itemPath>
+      <itemPath>src/MotorCarriage.h</itemPath>
+      <itemPath>src/MotorSensor.h</itemPath>
+      <itemPath>src/Servo.h</itemPath>
+      <itemPath>src/UltrasonicSensor.h</itemPath>
+      <itemPath>src/UltrasonicSensorCarriage.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -20,14 +20,14 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>/home/viproz/Programation/TNEV-Project/src/Button.cpp</itemPath>
-      <itemPath>/home/viproz/Programation/TNEV-Project/src/Logger.cpp</itemPath>
-      <itemPath>/home/viproz/Programation/TNEV-Project/src/Motor.cpp</itemPath>
-      <itemPath>/home/viproz/Programation/TNEV-Project/src/MotorCarriage.cpp</itemPath>
-      <itemPath>/home/viproz/Programation/TNEV-Project/src/MotorSensor.cpp</itemPath>
-      <itemPath>/home/viproz/Programation/TNEV-Project/src/Servo.cpp</itemPath>
-      <itemPath>/home/viproz/Programation/TNEV-Project/src/UltrasonicSensor.cpp</itemPath>
-      <itemPath>/home/viproz/Programation/TNEV-Project/src/UltrasonicSensorCarriage.cpp</itemPath>
+      <itemPath>src/Button.cpp</itemPath>
+      <itemPath>src/Logger.cpp</itemPath>
+      <itemPath>src/Motor.cpp</itemPath>
+      <itemPath>src/MotorCarriage.cpp</itemPath>
+      <itemPath>src/MotorSensor.cpp</itemPath>
+      <itemPath>src/Servo.cpp</itemPath>
+      <itemPath>src/UltrasonicSensor.cpp</itemPath>
+      <itemPath>src/UltrasonicSensorCarriage.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -68,82 +68,82 @@
           <commandLine>${FLAGS_LINKER}</commandLine>
         </linkerTool>
       </compileType>
-      <item path="/home/viproz/Programation/TNEV-Project/src/Button.cpp"
+      <item path="src/Button.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="/home/viproz/Programation/TNEV-Project/src/Button.h"
+      <item path="src/Button.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="/home/viproz/Programation/TNEV-Project/src/Logger.cpp"
+      <item path="src/Logger.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="/home/viproz/Programation/TNEV-Project/src/Logger.h"
+      <item path="src/Logger.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="/home/viproz/Programation/TNEV-Project/src/Motor.cpp"
+      <item path="src/Motor.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="/home/viproz/Programation/TNEV-Project/src/Motor.h"
+      <item path="src/Motor.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="/home/viproz/Programation/TNEV-Project/src/MotorCarriage.cpp"
+      <item path="src/MotorCarriage.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="/home/viproz/Programation/TNEV-Project/src/MotorCarriage.h"
+      <item path="src/MotorCarriage.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="/home/viproz/Programation/TNEV-Project/src/MotorSensor.cpp"
+      <item path="src/MotorSensor.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="/home/viproz/Programation/TNEV-Project/src/MotorSensor.h"
+      <item path="src/MotorSensor.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="/home/viproz/Programation/TNEV-Project/src/Servo.cpp"
+      <item path="src/Servo.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="/home/viproz/Programation/TNEV-Project/src/Servo.h"
+      <item path="src/Servo.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="/home/viproz/Programation/TNEV-Project/src/UltrasonicSensor.cpp"
+      <item path="src/UltrasonicSensor.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="/home/viproz/Programation/TNEV-Project/src/UltrasonicSensor.h"
+      <item path="src/UltrasonicSensor.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="/home/viproz/Programation/TNEV-Project/src/UltrasonicSensorCarriage.cpp"
+      <item path="src/UltrasonicSensorCarriage.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="/home/viproz/Programation/TNEV-Project/src/UltrasonicSensorCarriage.h"
+      <item path="src/UltrasonicSensorCarriage.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -174,82 +174,82 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="/home/viproz/Programation/TNEV-Project/src/Button.cpp"
+      <item path="src/Button.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="/home/viproz/Programation/TNEV-Project/src/Button.h"
+      <item path="src/Button.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="/home/viproz/Programation/TNEV-Project/src/Logger.cpp"
+      <item path="src/Logger.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="/home/viproz/Programation/TNEV-Project/src/Logger.h"
+      <item path="src/Logger.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="/home/viproz/Programation/TNEV-Project/src/Motor.cpp"
+      <item path="src/Motor.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="/home/viproz/Programation/TNEV-Project/src/Motor.h"
+      <item path="src/Motor.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="/home/viproz/Programation/TNEV-Project/src/MotorCarriage.cpp"
+      <item path="src/MotorCarriage.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="/home/viproz/Programation/TNEV-Project/src/MotorCarriage.h"
+      <item path="src/MotorCarriage.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="/home/viproz/Programation/TNEV-Project/src/MotorSensor.cpp"
+      <item path="src/MotorSensor.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="/home/viproz/Programation/TNEV-Project/src/MotorSensor.h"
+      <item path="src/MotorSensor.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="/home/viproz/Programation/TNEV-Project/src/Servo.cpp"
+      <item path="src/Servo.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="/home/viproz/Programation/TNEV-Project/src/Servo.h"
+      <item path="src/Servo.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="/home/viproz/Programation/TNEV-Project/src/UltrasonicSensor.cpp"
+      <item path="src/UltrasonicSensor.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="/home/viproz/Programation/TNEV-Project/src/UltrasonicSensor.h"
+      <item path="src/UltrasonicSensor.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="/home/viproz/Programation/TNEV-Project/src/UltrasonicSensorCarriage.cpp"
+      <item path="src/UltrasonicSensorCarriage.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="/home/viproz/Programation/TNEV-Project/src/UltrasonicSensorCarriage.h"
+      <item path="src/UltrasonicSensorCarriage.h"
             ex="false"
             tool="3"
             flavor2="0">
