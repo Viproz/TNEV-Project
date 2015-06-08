@@ -22,7 +22,7 @@ public:
     static void log(String msg) { Serial.println(msg); }
     static void log(double msg) { Serial.println(msg); }
     
-    static void error() { digitalWrite(13, HIGH); }
+    static void error() { ; }
     
 private:
     

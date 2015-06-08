@@ -35,7 +35,7 @@ void MotorSensor::reset() {
 int MotorSensor::tick() {
     int value = analogRead(pinContact);
     
-    if(value > 800 && millis() - prevDetection > 100) {
+    if(value > 800 && millis() - prevDetection > 300) {
         prevDetection = millis();
         intersections++;
         Logger::log(intersections);

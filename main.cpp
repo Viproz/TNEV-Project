@@ -28,10 +28,10 @@ void setup() {
     buttonCalibrate = new Button(PIN_CALIBRATE);
     buttonStart = new Button(PIN_START);
     buttonStop = new Button(PIN_STOP);
-    sound = new UltrasonicSensorCarriage();
+     sound = new UltrasonicSensorCarriage();
 }
 
-void loop() {    
+void loop() {
     //Buttons
     if(buttonStop->pushed()) {
         Logger::log("pres.3se2d");
@@ -43,9 +43,27 @@ void loop() {
         sound->write(angle);
     }
     if(buttonStart->pushed()) {
-        //motors.goDistance(20);
-        sound->reset();
         Logger::log("pressed");
+        sound->reset();
+        
+        int angle, dist = 0;
+        
+        //Do the slalom
+        sound->findNearest(angle, dist);
+        motors.turn(90 - angle);
+        sound->reset();
+        dist = sound->getDistance();
+        motors.goDistance(dist - 35);
+        motors.turn(-90);
+        motors.goDistance(35);
+        motors.turn(90);
+        motors.goDistance(70);
+        sound->findNearest(angle, dist);
+        //fix f
+        motors.turn(90 - (angle - 45));
+        motors.goDistance(70);
+        
+        
         
     }
     if(buttonCalibrate->pushed()) {
@@ -53,3 +71,4 @@ void loop() {
         Logger::log("presse2d");
     }
 }
+

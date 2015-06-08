@@ -18,7 +18,7 @@ MotorCarriage::MotorCarriage() {
     rightSensor = new MotorSensor(MOTOR1_SENSOR_PIN);
     leftSensor = new MotorSensor(MOTOR2_SENSOR_PIN);
     
-    maxSpeed = 50;
+    maxSpeed = 28;
     
     setSpeed(0);
 }
@@ -50,7 +50,7 @@ void MotorCarriage::calibrate() {
             Logger::error();
             break;
         }
-        if((rightSensor->tick() >= 20 && leftSensor->tick() >= 20)) {
+        if((rightSensor->tick() >= 20) & (leftSensor->tick() >= 20)) {
             break;
         }
     }
@@ -61,10 +61,12 @@ void MotorCarriage::calibrate() {
     //Check to see if one turned more then the other
     if(rightSensor->getIntersections() > leftSensor->getIntersections()) {
         minIntersections = leftSensor->getIntersections();
-        rightMotor->setMaxVoltage(255 * (leftSensor->getIntersections() / rightSensor->getIntersections()));
+        rightMotor->setMaxVoltage(255.0 * ((float)leftSensor->getIntersections() / (float)rightSensor->getIntersections()));
+        Logger::log(255.0 * ((float)leftSensor->getIntersections() / (float)rightSensor->getIntersections()));
     } else {
         minIntersections = rightSensor->getIntersections();
-        leftMotor->setMaxVoltage(255 * (rightSensor->getIntersections() / leftSensor->getIntersections()));
+        leftMotor->setMaxVoltage(255.0 * ((float)rightSensor->getIntersections() / (float)leftSensor->getIntersections()));
+        Logger::log(255.0 * ((float)rightSensor->getIntersections() / (float)leftSensor->getIntersections()));
     }
     
     //Get the speed in cm/s of the robot d = intersections * (2pi / number of intersections of the wheel) * radius of the wheel
@@ -92,8 +94,8 @@ void MotorCarriage::setSpeed(int percent) {
 void MotorCarriage::turn(int degree, int speedPercent) {
     //Both wheels will move
     //d = angle / 2 * pi * (dist between the two wheels) / 180 and t = d / v
-    //TODO: precalculate 1/2 * pi * (dist between the two wheels) / 180
-    float timeToMove = (abs(degree) * 0.1244 / maxSpeed) / ((float)speedPercent / 100.0);
+    //TODO: precalculate 1/2 * pi * (dist between the two wheels) / 180 (0.1244)
+    float timeToMove = ((float)abs(degree) * 0.1 / maxSpeed) / ((float)speedPercent / 100.0);
     
     float sign = 1;
     
@@ -104,7 +106,7 @@ void MotorCarriage::turn(int degree, int speedPercent) {
     //TODO: Find a way to be able to remove the delay
     rightMotor->setSpeed(speedPercent * sign);
     leftMotor->setSpeed(-1.0 * speedPercent * sign);
-    delayMicroseconds(timeToMove * 1000.0);
+    delay(timeToMove * 1000.0);
     rightMotor->setSpeed(0);
     leftMotor->setSpeed(0);
 }
@@ -121,8 +123,11 @@ void MotorCarriage::goDistance(int centimeters, int speedPercent) {
     //t = d / v
     float timeToMove = abs(centimeters) / maxSpeed / ((float)speedPercent / 100.0);
     
-    //TODO: Find a way to be able to remove the delay
-    setSpeed(speedPercent);
+    int sign = 1;
+    if(centimeters < 0)
+        sign = -1;
+    
+    setSpeed(speedPercent * sign);
     delay(timeToMove * 1000.0);
     setSpeed(0);
 }
