@@ -43,3 +43,16 @@ int MotorSensor::tick() {
     
     return intersections;
 }
+
+/**
+ * 
+ * @return Angle of the wheel
+ */
+int MotorSensor::getAngle() {
+    int value = (analogRead(pinContact) + analogRead(pinContact) + analogRead(pinContact)) / 3;
+    Logger::log("Valiue");
+    Logger::log(value);
+    Logger::log(map(value, 0, 1024, 0, 360));
+    
+    return map(value, 0, 1024, 0, 360);
+}

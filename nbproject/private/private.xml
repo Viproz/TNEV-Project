@@ -10,6 +10,7 @@
             <file>file:/home/viproz/Programation/TNEV-Project/src/Logger.cpp</file>
             <file>file:/home/viproz/Programation/TNEV-Project/src/Motor.cpp</file>
             <file>file:/home/viproz/Programation/TNEV-Project/src/UltrasonicSensorCarriage.h</file>
+            <file>file:/home/viproz/Programation/TNEV-Project/src/MotorSensor.h</file>
             <file>file:/home/viproz/Programation/TNEV-Project/src/Servo.cpp</file>
             <file>file:/home/viproz/Programation/TNEV-Project/src/UltrasonicSensor.cpp</file>
             <file>file:/home/viproz/Programation/TNEV-Project/src/UltrasonicSensorCarriage.cpp</file>
@@ -20,7 +21,6 @@
             <file>file:/home/viproz/Programation/TNEV-Project/src/MotorCarriage.h</file>
             <file>file:/home/viproz/Programation/TNEV-Project/src/Servo.h</file>
             <file>file:/home/viproz/Programation/TNEV-Project/src/Motor.h</file>
-            <file>file:/home/viproz/Programation/TNEV-Project/Makefile</file>
         </group>
     </open-files>
 </project-private>

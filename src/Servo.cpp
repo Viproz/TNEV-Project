@@ -25,7 +25,6 @@ void Servo::write(int angle) {
     int micro = 5.56 * (float)angle + 1000;
     
     while(millis() - time < 100) {
-        //Logger::log("therdsfe");
         digitalWrite(servoPin, HIGH);
         delayMicroseconds(micro);
         digitalWrite(servoPin, LOW);

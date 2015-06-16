@@ -18,6 +18,7 @@ public:
     void reset();
     
     int tick();
+    int getAngle();
     int getIntersections() { return intersections; }
 private:
     uint8_t pinContact;

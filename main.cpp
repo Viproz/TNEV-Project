@@ -67,7 +67,8 @@ void loop() {
         
     }
     if(buttonCalibrate->pushed()) {
-        motors.calibrate();
+        motors.goDistance(20);
+        //motors.calibrate();
         Logger::log("presse2d");
     }
 }

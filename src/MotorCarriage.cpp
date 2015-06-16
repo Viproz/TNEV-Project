@@ -8,15 +8,16 @@
 #define MOTOR2_CONTROL_PIN_2 8
 #define MOTOR2_ENABLE_PIN 9
 
-#define MOTOR1_SENSOR_PIN A2
-#define MOTOR2_SENSOR_PIN A3
+#define MOTOR1_SENSOR_PIN A5
+#define MOTOR2_SENSOR_PIN A4
 
 MotorCarriage::MotorCarriage() {
-    rightMotor = new Motor(MOTOR1_CONTROL_PIN_1, MOTOR1_CONTROL_PIN_2, MOTOR1_ENABLE_PIN);
-    leftMotor = new Motor(MOTOR2_CONTROL_PIN_1, MOTOR2_CONTROL_PIN_2, MOTOR2_ENABLE_PIN);
-    
     rightSensor = new MotorSensor(MOTOR1_SENSOR_PIN);
     leftSensor = new MotorSensor(MOTOR2_SENSOR_PIN);
+    
+    rightMotor = new Motor(MOTOR1_CONTROL_PIN_1, MOTOR1_CONTROL_PIN_2, MOTOR1_ENABLE_PIN, rightSensor);
+    leftMotor = new Motor(MOTOR2_CONTROL_PIN_1, MOTOR2_CONTROL_PIN_2, MOTOR2_ENABLE_PIN, leftSensor);
+    
     
     maxSpeed = 28;
     
@@ -93,9 +94,7 @@ void MotorCarriage::setSpeed(int percent) {
  */
 void MotorCarriage::turn(int degree, int speedPercent) {
     //Both wheels will move
-    //d = angle / 2 * pi * (dist between the two wheels) / 180 and t = d / v
-    //TODO: precalculate 1/2 * pi * (dist between the two wheels) / 180 (0.1244)
-    float timeToMove = ((float)abs(degree) * 0.1 / maxSpeed) / ((float)speedPercent / 100.0);
+    //d = angle / 2 * pi * (dist between the two wheels) / 180
     
     float sign = 1;
     
@@ -103,12 +102,14 @@ void MotorCarriage::turn(int degree, int speedPercent) {
     if(degree < 0)
         sign = -1;
     
-    //TODO: Find a way to be able to remove the delay
-    rightMotor->setSpeed(speedPercent * sign);
-    leftMotor->setSpeed(-1.0 * speedPercent * sign);
-    delay(timeToMove * 1000.0);
-    rightMotor->setSpeed(0);
-    leftMotor->setSpeed(0);
+    int d = (float)degree * 1.23;
+    
+    rightMotor->goDistance(d * sign);
+    leftMotor->goDistance(-1 * d * sign);
+    
+    while(rightMotor->tick() | leftMotor->tick()) {
+        //do nothing right now
+    }
 }
 
 /**
@@ -120,7 +121,15 @@ void MotorCarriage::turn(int degree, int speedPercent) {
  * @param speedPercent Speed in percent
  */
 void MotorCarriage::goDistance(int centimeters, int speedPercent) {
-    //t = d / v
+    
+    rightMotor->goDistance(centimeters, speedPercent);
+    leftMotor->goDistance(centimeters, speedPercent);
+    while(rightMotor->tick() | leftMotor->tick()) {
+        //do nothing right now
+    }
+    
+    
+    /*//t = d / v
     float timeToMove = abs(centimeters) / maxSpeed / ((float)speedPercent / 100.0);
     
     int sign = 1;
@@ -129,5 +138,5 @@ void MotorCarriage::goDistance(int centimeters, int speedPercent) {
     
     setSpeed(speedPercent * sign);
     delay(timeToMove * 1000.0);
-    setSpeed(0);
+    setSpeed(0);*/
 }
