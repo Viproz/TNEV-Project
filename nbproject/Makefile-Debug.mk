@@ -21,8 +21,8 @@ FC=gfortran
 AS=avr-as
 
 # Macros
-CND_PLATFORM=Arduino-Linux-x86
-CND_DLIB_EXT=so
+CND_PLATFORM=Arduino-Windows
+CND_DLIB_EXT=dll
 CND_CONF=Debug
 CND_DISTDIR=dist
 CND_BUILDDIR=build
@@ -64,9 +64,9 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tnev-project
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tnev-project.exe
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tnev-project: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tnev-project.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	avr-gcc -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tnev-project ${OBJECTFILES} ${LDLIBSOPTIONS} ${FLAGS_LINKER}
 
@@ -121,7 +121,7 @@ ${OBJECTDIR}/main.o: main.cpp
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tnev-project
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/tnev-project.exe
 
 # Subprojects
 .clean-subprojects:
